@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vthinkbbc.netlify.app/sitemap.xml
