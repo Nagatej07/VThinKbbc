@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About VthinK - Learn more about our VThink Club</title>
+  <meta name="description" content="Learn more about VThinK , the BCA tech club at BBC.Discover our missiom , vision , team and how we help students grow in technology">
+  <meta name="keywords" content="VThinK , About VThinK , BCA Tech Club, BBC College , Club Vision,Club Mission" >
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="VThinK - Learn more about our VThink Club">
+  <meta property="og:description" content="Learn about the vision and mission of VthinK , the tech club of BBC College.">
+  <link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="footer.css">
+<link rel="stylesheet" href="blog.css">
+<style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .navbar {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      z-index: 1000;
+      height: 60px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar .brand {
+      font-family: serif;
+      color: aliceblue;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+  }
+
+  .navbar .nav-links {
+      display: flex;
+      gap: 20px;
+  }
+
+  .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+  }
+
+  .navbar .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffcc00;
+  }
+
+  .navbar .menu-icon {
+      display: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+  }
+
+  .navbar .menu-icon:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .sidemenu {
+      height: 100vh;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow-x: hidden;
+      transition: 0.5s ease;
+      padding-top: 60px;
+      z-index: 999;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidemenu a {
+      padding: 15px 25px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: block;
+      transition: 0.3s ease;
+      white-space: nowrap;
+  }
+
+  .sidemenu a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .sidemenu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+      transition: 0.3s ease;
+  }
+
+  .sidemenu .close-btn:hover {
+      color: #ffcc00;
+  }
+
+  @media screen and (max-width: 768px) {
+      .navbar .nav-links {
+          display: none;
+      }
+
+      .navbar .menu-icon {
+          display: block;
+      }
+
+      .sidemenu {
+          width: 0;
+      }
+
+      .sidemenu.active {
+          width: 250px;
+      }
+  }
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="home.html" class="brand">VTHINK ⚡</a>
+  <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact</a>
+  </div>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div id="sidemenu" class="sidemenu">
+  <span class="close-btn" onclick="toggleMenu()">×</span>
+  <a href="home.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">Blog</a>
+  <a href="projects.html">Projects</a>
+  <a href="events.html">Events</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<script>
+  function toggleMenu() {
+      const sidemenu = document.getElementById('sidemenu');
+      sidemenu.classList.toggle('active');
+  }
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function(event) {
+      const sidemenu = document.getElementById('sidemenu');
+      const menuIcon = document.querySelector('.menu-icon');
+      
+      if (!sidemenu.contains(event.target) && 
+          !menuIcon.contains(event.target) && 
+          sidemenu.classList.contains('active')) {
+          sidemenu.classList.remove('active');
+      }
+  });
+</script>
+  <header class="header-center">
+    <h1 class="neon">About VThink</h1>
+    <p>Welcome to VthinK , the place of innovation in the BCA department of Ballari Business College.We are 
+      not just another tech club - we dive into AI , automation ,coding,open-source and real world tech solutions
+      , ensuring our members don't just learn but master the game.VthinK isn't for the faint hearted - it's 
+      for those who dare to challenge norms , push limits and create impact .
+    </p>
+  </header>
+  
+  <section class="vision-mission">
+    <div class="glass">
+      <h2 style="color:cyan;">🧠 Our Mission</h2>
+      <p>
+       VThinK empowers students through hands-on workshops and collaborative projects,making
+       skill acquisition practicaland accessible.We foster innovation and 
+       expertise,preparing students to excel in a fast evolving tech world.
+      </p>
+    </div>
+    <div class="glass">
+      <h2 style="color:cyan;">🏆 Our Vision</h2>
+      <p>
+        VThinK fosters an inclusive tech community where students develop skills,
+        explore innovation and engage in hands-on learning.Through challenges,career focused learning 
+        and hackathons,we empower members to shape the future with confidence and creativity.
+      </p>
+    </div>
+  </section>
+  <h2 align="center">Key Initiatives</h2>
+  <section class="card-section">
+    <div class="initiative-card">
+      <h3 style="color:cyan;"><strong>💻 TechXWorkshops </strong></h3>
+      <p>Hands-on sessions on AI,web dev and open 
+        source tools to turn learners into innovators.
+      </p>
+    </div>
+    <div class="initiative-card">
+      <h3 style="color:cyan;">🌐 Code Battles</h3>
+      <p>Competitive coding , debugging challenges and
+        LeetCode Contests to sharpen problem solving skills.
+      </p>
+    </div>
+    <div class="initiative-card">
+      <h3 style="color:cyan;">🤖AI unleashed</h3>
+      <p>Exploring AI-powered tools to create prsentations , videos and automation never like before.</p>
+    </div>
+    <div class="initiative-card">
+      <h3 style="color:cyan;">🏅VHack</h3>
+      <p>The upcoming Ultimate Hackathon- A platform to build,break and inovate with real 
+        world tech solutions.
+      </p>
+    </div>
+  </section>
+  </section>
+
+      <div class="container">
+          <h1 align="center">Our Team</h1>
+          <br>
+          <div class="team-grid">
+              <div class="club-incharge">
+                  <img src="mam.jpg" alt="Club Incharge" class="incharge-img">
+                  <h2 class="incharge-name">GM Swetha </h2>
+                  <p class="incharge-role" style="color: whitesmoke;">Club In-charge</p>
+              </div>
+              
+              <div class="members-grid">
+                  <div class="team-member">
+                      <img src="teja.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">Bingi Nagateja</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="mitraja01.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">A M Mitraja</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="manasa.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">B Manasa</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="sanket.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">B Sai Sanketh</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="komal.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">Komal A</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="kavya1.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">Kavya Kruthi M P</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="navya.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">Navya K</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="shravani.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">Shravani H</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="sindhu.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">Sindhu N</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+                  <div class="team-member">
+                      <img src="veerendra.jpg" alt="Team Member" class="member-img">
+                      <h3 class="member-name">Veerendra Sai K</h3>
+                      <p class="member-role">Club Memeber</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </body>
+  </html>
+
+
+
+      <!-- Footer Section -->
+          <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>VThink</h3>
+              <p>Innovate, Dominate, Elevate.</p>
+              <div class="social-links">
+                <a href="https://github.com/Nagatej07" aria-label="GitHub"><i class="fab fa-github";"></i></a>
+                <a href="https://whatsapp.com/channel/0029VarTHWUAYlUGRrlVoA3g" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> 
+                <a href="https://www.instagram.com/tejhhh_07?igsh=MWNldHR6ejQydXdtbA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/vthink_bbc?igsh=MWo4cDYxaGdiNW5pNQ==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                  <li type="none"><a href="about.html">About Us</a></li>
+                  <li type="none"><a href="events.html">Events</a></li>
+                  <li type="none"><a href="blog.html">Blog</a></li>
+                  <li type="none"><a href="projects.html">Projects</a></li>
+              </ul>
+          </div>
+
+          <div class="footer-section">
+              <h3>Resources</h3>
+              <ul class="footer-links">
+                  <li type="none"><a href="https://www.instagram.com/vthink_bbc?igsh=MWo4cDYxaGdiNW5pNQ==">Instagram Page</a></li>
+                  <li type="none"><a href="https://whatsapp.com/channel/0029VarTHWUAYlUGRrlVoA3g">Broadcast Channel</a></li>
+                  <li type="none"><a href="https://github.com/Nagatej07">GitHub Repos</a></li>
+              </ul>
+          </div>
+
+          <div class="footer-section">
+              <h3>Updates</h3>
+              <p>Stay updated with our latest tech things and events.</p>
+              <form class="newsletter-form" id="newsletterForm">
+                  <input type="email" placeholder="Enter your email" required>
+                  <button type="submit"> <a href="mailto:b.nagatejaxa@gmail.com" style="color: white; text-decoration: none;" >Subscribe</a></button>
+              </form>
+          </div>
+      </div>
+
+      <div class="copyright">
+          © Designed and Developed by Bingi Nagateja
+      </div>
+  </footer>
+</body>
+</html>

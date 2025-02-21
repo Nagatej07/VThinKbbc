@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact VThinK - Get in touch with Our Tech Club</title>
+    <meta name="description" content="Have questions ? VThinK at BBC College for event partnerships , tech discusions and student Initiatives.">
+    <meta name="keywords" content="Contact VThinK , BBC College Club , Tech Club Inquiry , collaboration , Event Partnerships">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="VThinK - Get in Touch with our Tech Club ">
+    <meta property="og:description" content="Reach out to VThinK for tech collaborations,hackathon queries , and more.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="extranavbar.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1000;
+        height: 60px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar .brand {
+        font-family: serif;
+        color: aliceblue;
+        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .navbar .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .navbar .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 16px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .navbar .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #ffcc00;
+    }
+
+    .navbar .menu-icon {
+        display: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar .menu-icon:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .sidemenu {
+        height: 100vh;
+        width: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        overflow-x: hidden;
+        transition: 0.5s ease;
+        padding-top: 60px;
+        z-index: 999;
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidemenu a {
+        padding: 15px 25px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+        transition: 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .sidemenu a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .sidemenu .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 28px;
+        cursor: pointer;
+        color: white;
+        transition: 0.3s ease;
+    }
+
+    .sidemenu .close-btn:hover {
+        color: #ffcc00;
+    }
+
+    @media screen and (max-width: 768px) {
+        .navbar .nav-links {
+            display: none;
+        }
+
+        .navbar .menu-icon {
+            display: block;
+        }
+
+        .sidemenu {
+            width: 0;
+        }
+
+        .sidemenu.active {
+            width: 250px;
+        }
+    }
+</style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="home.html" class="brand">VTHINK ⚡</a>
+    <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="projects.html">Projects</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div id="sidemenu" class="sidemenu">
+    <span class="close-btn" onclick="toggleMenu()">×</span>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="projects.html">Projects</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<script>
+    function toggleMenu() {
+        const sidemenu = document.getElementById('sidemenu');
+        sidemenu.classList.toggle('active');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const sidemenu = document.getElementById('sidemenu');
+        const menuIcon = document.querySelector('.menu-icon');
+        
+        if (!sidemenu.contains(event.target) && 
+            !menuIcon.contains(event.target) && 
+            sidemenu.classList.contains('active')) {
+            sidemenu.classList.remove('active');
+        }
+    });
+</script>    <div class="content">
+
+    <div class="container">
+        <header>
+            <h1 align="center">Get in Touch 💬</h1>
+            <p class="subtitle">Have questions? I’d love to hear from you.</p>
+        </header>       
+        <div class="team-cards">
+            <div class="team-card">
+                <img src="nagateja.jpg" alt="Teja " class="member-image">
+                <div class="member-info">
+                    <h3 class="member-name">BINGI NAGATEJA</h3>
+                    <p class="member-title" style="color: black;"><b>BCA STUDENT</b></p>
+                    <p class="member-title" style="color: black;"><B>BALLARI BUSINESS COLLEGE</B></p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/tejhhh_07?igsh=MWNldHR6ejQydXdtbA==" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/bingi-nagateja-bb0148229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+          
+        </div>
+        </div>
+        <div class="contact-form">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" placeholder="What is this about?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Your message..." required></textarea>
+                </div>
+                
+                <button type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                    </svg>
+                   <a href="mailto:b.nagatejaxa@gmail.com" style="color:black; text-decoration: none;"><b>Send message</b></a>
+                </button>
+                
+                <div class="success-message" id="successMessage">
+                    Message sent successfully! We'll get back to you soon.
+                </div>
+                
+                <div class="error-message" id="errorMessage">
+                    There was an error sending your message. Please try again later.
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>VThink</h3>
+              <p>Innovate, Dominate, Elevate</p>
+              <div class="social-links">
+                  <a href="https://github.com/Nagatej07" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="https://whatsapp.com/channel/0029VarTHWUAYlUGRrlVoA3g" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> 
+                  <a href="https://www.instagram.com/tejhhh_07?igsh=MWNldHR6ejQydXdtbA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/vthink_bbc?igsh=MWo4cDYxaGdiNW5pNQ==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              </div>
+          </div>
+
+          <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul class="footer-links">
+                  <li type="none"><a href="about.html">About Us</a></li>
+                  <li type="none"><a href="events.html">Events</a></li>
+                  <li type="none"><a href="blog.html">Blog</a></li>
+                  <li type="none"><a href="projects.html">Projects</a></li>
+              </ul>
+          </div>
+
+          <div class="footer-section">
+              <h3>Resources</h3>
+              <ul class="footer-links">
+                  <li type="none"><a href="https://www.instagram.com/vthink_bbc?igsh=MWo4cDYxaGdiNW5pNQ==">Instagram Page</a></li>
+                  <li type="none"><a href="https://whatsapp.com/channel/0029VarTHWUAYlUGRrlVoA3g">Broadcast Channel</a></li>
+                  <li type="none"><a href="https://github.com/Nagatej07">GitHub Repos</a></li>
+              </ul>
+          </div>
+
+          <div class="footer-section">
+              <h3>Updates</h3>
+              <p>Stay updated with our latest tech things and events.</p>
+              <form class="newsletter-form" id="newsletterForm">
+                  <input type="email" placeholder="Enter your email" required>
+                  <button type="submit"> <a href="mailto:b.nagatejaxa@gmail.com" style="color: white; text-decoration: none;" >Subscribe</a></button>
+              </form>
+          </div>
+      </div>
+
+      <div class="copyright">
+          © Designed and Developed by Bingi Nagateja
+      </div>
+  </footer>
+
+    <script src="nav.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VThinK Projects - Innovative Student Tech Projects</title>
+    <meta name="description" content="Check out the innovative tech projects created by VThinK members including web apps">
+    <meta name="keywords" content="VThinK Events , Tech Hackathons , BBC College workshops , coding Compeetitions">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="VThinK Projects - Innovative Student Tech Projects">
+    <meta property="og:description" content="Discover projects Developedby VThinK members in AI , web development and contibute.">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+  
+        body {
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+  
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 1000;
+            height: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+  
+        .navbar .brand {
+            font-family: serif;
+            color: aliceblue;
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+  
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+  
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+  
+        .navbar .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffcc00;
+        }
+  
+        .navbar .menu-icon {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+  
+        .navbar .menu-icon:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+  
+        .sidemenu {
+            height: 100vh;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            overflow-x: hidden;
+            transition: 0.5s ease;
+            padding-top: 60px;
+            z-index: 999;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+  
+        .sidemenu a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s ease;
+            white-space: nowrap;
+        }
+  
+        .sidemenu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+  
+        .sidemenu .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+            transition: 0.3s ease;
+        }
+  
+        .sidemenu .close-btn:hover {
+            color: #ffcc00;
+        }
+  
+        @media screen and (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+            }
+  
+            .navbar .menu-icon {
+                display: block;
+            }
+  
+            .sidemenu {
+                width: 0;
+            }
+  
+            .sidemenu.active {
+                width: 250px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+        <a href="home.html" class="brand">VTHINK ⚡</a>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="projects.html">Projects</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+  
+    <div id="sidemenu" class="sidemenu">
+        <span class="close-btn" onclick="toggleMenu()">×</span>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="projects.html">Projects</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+    </div>
+  
+    <script>
+        function toggleMenu() {
+            const sidemenu = document.getElementById('sidemenu');
+            sidemenu.classList.toggle('active');
+        }
+  
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidemenu = document.getElementById('sidemenu');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            if (!sidemenu.contains(event.target) && 
+                !menuIcon.contains(event.target) && 
+                sidemenu.classList.contains('active')) {
+                sidemenu.classList.remove('active');
+            }
+        });
+    </script>
+
+    <div class="container">
+        <header>
+            
+            <h1>Our Projects ⟨⟩</h1>
+            <p class="subtitle">Explore the innovative projects built by our community</p>
+        </header>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzfY0BgtoxklFhsc32HElqSsBcUlIiKjdmwA&s" alt="Art-Gallery" class="project-image">
+                <div class="project-details">
+                    <h3 class="project-title">Art gallery</h3>
+                    <p class="project-description">A visually appealing online gallery to showcase and explore artwork effortlessly.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JAVASCRIPT</span>
+                    </div>
+                    <div class="button-container">
+                        <a href="https://github.com/Veerendrachari-ai/Art-Gallery.git" target="_blank" class="btn btn-view-code">
+                            <span class="icon-small">📁</span> View Code
+                        </a>
+                        <a href="https://veerendrachari-ai.github.io/Art-Gallery/art.html" target="_blank" class="btn btn-live-demo">
+                            <span class="icon-small">▶️</span> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://dianapps.com/blog/wp-content/uploads/2023/07/Untitled-design-2023-07-28T101943.184.png" alt="Portfolio-project" class="project-image">
+                <div class="project-details">
+                    <h3 class="project-title">Portfolio</h3>
+                    <p class="project-description">A sleek and interactive personal portfolio to highlight skills, 
+                        projects, and achievements.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JAVASCRIPT</span>
+                    </div>
+                    <div class="button-container">
+                        <a href="https://github.com/Veerendrachari-ai/portfolio.git" target="_blank" class="btn btn-view-code">
+                            <span class="icon-small">📁</span> View Code
+                        </a>
+                        <a href="https://veerendrachari-ai.github.io/portfolio/verticleport.html" target="_blank" class="btn btn-live-demo">
+                            <span class="icon-small">▶️</span> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://onlinetyping.org/typing-test/images/finger-position.gif" alt="Typingspeedtester-project" class="project-image">
+                <div class="project-details">
+                    <h3 class="project-title">Typing speed Tester</h3>
+                    <p class="project-description">
+                        A real-time typing speed test tool to measure and improve typing efficiency.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JAVASCRIPT</span>
+                    </div>
+                    <div class="button-container">
+                        <a href="https://github.com/Veerendrachari-ai/typing-speed-webpage-.git" target="_blank" class="btn btn-view-code">
+                            <span class="icon-small">📁</span> View Code
+                        </a>
+                        <a href="https://veerendrachari-ai.github.io/typing-speed-webpage-/typespeed.html" target="_blank" class="btn btn-live-demo">
+                            <span class="icon-small">▶️</span> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="https://spotme.com/wp-content/uploads/2023/03/event-request-form-template-1.jpg" alt="event-request-form-project" class="project-image">
+                <div class="project-details">
+                    <h3 class="project-title">Event registeration form</h3>
+                    <p class="project-description"> A seamless digital form for easy event 
+                        registration and participant management.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JAVASCRIPT</span>
+                    </div>
+                    <div class="button-container">
+                        <a href="https://github.com/Veerendrachari-ai/portfolio.git" target="_blank" class="btn btn-view-code">
+                            <span class="icon-small">📁</span> View Code
+                        </a>
+                        <a href="https://veerendrachari-ai.github.io/form-registration-webpage/formtoimg.html" target="_blank" class="btn btn-live-demo">
+                            <span class="icon-small">▶️</span> Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Section -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VThink</h3>
+                <p>Innovate, Dominate, Elevate</p>
+                <div class="social-links">
+                    <a href="https://github.com/Nagatej07" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VarTHWUAYlUGRrlVoA3g" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> 
+                    <a href="https://www.instagram.com/tejhhh_07?igsh=MWNldHR6ejQydXdtbA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/vthink_bbc?igsh=MWo4cDYxaGdiNW5pNQ==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li type="none"><a href="about.html">About Us</a></li>
+                    <li type="none"><a href="events.html">Events</a></li>
+                    <li type="none"><a href="blog.html">Blog</a></li>
+                    <li type="none"><a href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li type="none"><a href="https://www.instagram.com/vthink_bbc?igsh=MWo4cDYxaGdiNW5pNQ==">Instagram Page</a></li>
+                    <li type="none"><a href="https://whatsapp.com/channel/0029VarTHWUAYlUGRrlVoA3g">Broadcast Channel</a></li>
+                    <li type="none"><a href="https://github.com/Nagatej07">GitHub Repos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Updates</h3>
+                <p>Stay updated with our latest tech things and events.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit"> <a href="mailto:b.nagatejaxa@gmail.com" style="color: white; text-decoration: none;" >Subscribe</a></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © Designed and Developed by Bingi Nagateja
+        </div>
+    </footer>
+<script type="module" src="nav.js"></script>
+</body>
+</html>

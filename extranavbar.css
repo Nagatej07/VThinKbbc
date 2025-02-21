@@ -1,0 +1,38 @@
+
+/* Hero Section */
+.hero {
+    padding-top: 5rem;
+    min-height: calc(100vh - 5rem);
+    gap: 2rem;
+}
+
+/* Stats Section */
+.stats-container {
+    padding: 2rem 2rem 4rem;
+    margin-top: -4rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 2rem;
+    }
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        right: -100%;
+    }
+
+    .stats-container {
+        margin-top: -2rem;
+        padding: 1rem;
+    }
+}
+
