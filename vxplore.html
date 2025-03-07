@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VThink AI-Powered Workshop</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="nvbar.js"></script>
+    <link rel="stylesheet" href="efooter.css">
+    <link rel="stylesheet" href="nvbar.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #0f172a, #0b324a);
+            color: #f8fafc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #60a5fa;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #93c5fd;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Header Styles */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(11, 50, 74, 0.9));
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(96, 165, 250, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(96, 165, 250, 0.1) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .header-content {
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .header-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .header-subtitle {
+            font-size: 1.5rem;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+        }
+
+        /* Event Overview Styles */
+        .event-overview {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        /* Session Styles */
+        .sessions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .session-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .session-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .session-title {
+            font-size: 1.5rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+
+        .session-description {
+            color: #cbd5e1;
+        }
+
+        .session-icon {
+            font-size: 2.5rem;
+            color: #60a5fa;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Games Section Styles */
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border-bottom: 4px solid #60a5fa;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-title {
+            font-size: 1.3rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+
+        .game-description {
+            color: #cbd5e1;
+        }
+
+        .game-icon {
+            font-size: 2.5rem;
+            color: #60a5fa;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Section Styles */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(11, 50, 74, 0.95));
+        }
+
+        .register-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(to right, #3b82f6, #2563eb);
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        .register-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .register-btn:hover::after {
+            transform: translateX(0);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #3b82f6;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #2563eb;
+            transform: translateY(-3px);
+        }
+
+       
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .sessions-container, .games-container {
+                grid-template-columns: 1fr;
+            }
+
+            .event-overview {
+                padding: 2rem;
+            }
+
+            .register-btn {
+                padding: 1rem 2rem;
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .header-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="home.html" class="brand">VTHINK ⚡</a>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="projects.html">Projects</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+    
+    <div id="sidemenu" class="sidemenu">
+        <span class="close-btn" onclick="toggleMenu()">×</span>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="projects.html">Projects</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <!-- Header Section -->
+    <header id="home">
+        <div class="header-content">
+            <h1 class="header-title">VThink AI-Powered Workshop</h1>
+            <p class="header-subtitle">Empowering Juniors with AI-driven Development & Fun Learning!</p>
+            <a href="https://forms.gle/JNaHFHyJvsakqJ5w9" class="register-btn">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <!-- Event Overview Section -->
+    <section id="overview" class="container">
+        <br>
+        <br>
+        <h2 class="section-title">Workshop Details</h2>
+        <div class="event-overview">
+            <p>Join us for an immersive workshop experience where you'll learn to harness the power of AI tools for modern web development. Discover how to integrate Firebase for backend functionality, develop applications with AI assistance, and create interactive chatbots that engage users. Whether you're a beginner or intermediate developer, this workshop will equip you with practical skills to accelerate your development process and create more intelligent applications.</p>
+            <p style="margin-top: 1rem;">Throughout the three sessions, you'll gain hands-on experience with cutting-edge AI technologies while building real-world projects in a supportive and engaging environment.</p>
+        </div>
+    </section>
+
+    <!-- Sessions Section -->
+    <section id="sessions" class="container">
+        <h2 class="section-title">Workshop Sessions</h2>
+        <p class="section-subtitle">Dive into AI-powered development through our comprehensive sessions</p>
+        
+        <div class="sessions-container">
+            <!-- Session 1 -->
+            <div class="session-card">
+                <div class="session-icon"><i class="fas fa-database"></i></div>
+                <h3 class="session-title">Session 1: Linking Static Pages to Firebase</h3>
+                <p class="session-description">Learn how to connect your static web pages to Firebase's powerful backend services. Discover how AI tools can simplify database design, authentication implementation, and real-time data synchronization. By the end of this session, you'll be able to transform simple HTML/CSS pages into dynamic web applications with full backend functionality.</p>
+            </div>
+            
+            <!-- Session 2 -->
+            <div class="session-card">
+                <div class="session-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3 class="session-title">Session 2: Developing Apps with AI Tools</h3>
+                <p class="session-description">Explore how AI-powered development tools can accelerate your app creation process. Learn to leverage AI for code generation, debugging, and optimization. You'll work with modern frameworks and discover how AI assistants can help you build responsive, feature-rich applications in a fraction of the time it would traditionally take.</p>
+            </div>
+            
+            <!-- Session 3 -->
+            <div class="session-card">
+                <div class="session-icon"><i class="fas fa-robot"></i></div>
+                <h3 class="session-title">Session 3: Building Chatbots with AI</h3>
+                <p class="session-description">Master the art of creating intelligent conversational interfaces using AI technologies. You'll learn to design, develop, and deploy chatbots that can understand natural language, learn from interactions, and provide helpful responses. This session covers everything from basic rule-based bots to sophisticated AI-powered assistants.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="container">
+        <br>
+        <br>
+        <h2 class="section-title">🎮 Fun Games & Activities</h2>
+        <p class="section-subtitle">Learning is more effective when it's fun!</p>
+        
+        <div class="games-container">
+            <!-- Game 1 -->
+            <div class="game-card">
+                <div class="game-icon"><i class="fas fa-code"></i></div>
+                <h3 class="game-title">AI Code Challenge</h3>
+                <p class="game-description">Compete in teams to solve coding challenges with the help of AI tools. Race against the clock to build the most efficient solutions and see how AI can enhance your problem-solving skills.</p>
+            </div>
+            
+            <!-- Game 2 -->
+            <div class="game-card">
+                <div class="game-icon"><i class="fas fa-brain"></i></div>
+                <h3 class="game-title">ChatBot Showdown</h3>
+                <p class="game-description">Design and train your own chatbot to compete in our interactive challenge. Participants will vote on which bot provides the most helpful, accurate, and engaging responses.</p>
+            </div>
+            
+            <!-- Game 3 -->
+            <div class="game-card">
+                <div class="game-icon"><i class="fas fa-puzzle-piece"></i></div>
+                <h3 class="game-title">AI Design Jam</h3>
+                <p class="game-description">Use AI tools to rapidly prototype and design a web application interface. Learn how AI can help you create beautiful, user-friendly designs even with limited design experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="register" class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to Level Up Your AI Development Skills?</h2>
+            <p>Join our whatsapp broadcast channel to recieve more updates </p>
+            <a href="https://forms.google.com/placeholder" class="register-btn">Register Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+ <!-- Footer Section -->
+ <footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>VThink</h3>
+            <p>Innovate, Dominate, Elevate.</p>
+            <div class="social-links">
+                <a href="https://github.com/Nagatej07" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://whatsapp.com/channel/0029VarTHWUAYlUGRrlVoA3g" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a> 
+                <a href="https://www.instagram.com/tejhhh_07?igsh=MWNldHR6ejQydXdtbA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/vthink_bbc?igsh=MWo4cDYxaGdiNW5pNQ==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li type="none"><a href="about.html">About Us</a></li>
+                <li type="none"><a href="events.html">Events</a></li>
+                <li type="none"><a href="blog.html">Blog</a></li>
+                <li type="none"><a href="projects.html">Projects</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+                <li type="none"><a href="https://www.instagram.com/vthink_bbc?igsh=MWo4cDYxaGdiNW5pNQ==">Instagram Page</a></li>
+                <li type="none"><a href="https://whatsapp.com/channel/0029VarTHWUAYlUGRrlVoA3g">Broadcast Channel</a></li>
+                <li type="none"><a href="https://github.com/Nagatej07">GitHub Repos</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Updates</h3>
+            <p>Stay updated with our latest tech things and events.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit"> <a href="mailto:b.nagatejaxa@gmail.com" style="color: white; text-decoration: none;" >Subscribe</a></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © Designed and Developed by Bingi Nagateja
+    </div>
+</footer>
+
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript -->
+    <script>
+        // Fade-in animation for sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            const backToTopBtn = document.querySelector('.back-to-top');
+            
+            // Initial check on page load
+            checkVisibility();
+            
+            // Check visibility on scroll
+            window.addEventListener('scroll', function() {
+                checkVisibility();
+                toggleBackToTopButton();
+            });
+            
+            function checkVisibility() {
+                const windowHeight = window.innerHeight;
+                const triggerPoint = windowHeight * 0.15;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    
+                    if (sectionTop < windowHeight - triggerPoint) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            function toggleBackToTopButton() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
